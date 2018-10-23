@@ -8,7 +8,7 @@
 if (!function_exists('dd')) {
     function dd(...$debug)
     {
-        echo '<pre>' . var_dump($debug) . '</pre>';
+        echo var_dump($debug);
         exit;
     }
 }
