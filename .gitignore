@@ -8,3 +8,6 @@ mww/tests/_support/_generated
 
 mww/views/compiled/*
 !mww/views/compiled/.keep
+
+ignored.php
+ignored
