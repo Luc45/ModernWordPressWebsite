@@ -15,10 +15,9 @@ class Viewable_Service_Provider extends Context_Aware_Service_Provider {
 	 *
 	 * When it registers:
 	 * Whenever someone visits the website
-	 * On WP REST requests
 	 */
 	public static function should_register(): bool {
-		return wp_using_themes();
+		return wp_using_themes() && ! mww_is_rest_api_request();
 	}
 
 	public function register(): void {

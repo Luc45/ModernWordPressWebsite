@@ -38,7 +38,7 @@ require_once MWW_PATH . 'framework/helpers.php';
 include_once MWW_PATH . 'app/helpers.php';
 
 /**
- * Booststrap the application
+ * Booststraps the application
  *
  * @var $container tad_DI52_Container
  */
