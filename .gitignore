@@ -1,10 +1,12 @@
 /.idea
 /mww/vendor
 /mww/.env
-/mww/tests/_data/dump.sql
 
 mww/tests/_output
 mww/tests/_support/_generated
 
 mww/views/compiled/*
 !mww/views/compiled/.keep
+
+ignored.php
+ignored

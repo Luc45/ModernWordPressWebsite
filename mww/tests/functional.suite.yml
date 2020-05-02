@@ -5,32 +5,39 @@
 
 actor: FunctionalTester
 modules:
-  enabled:
-    - WPDb
-    - WPBrowser
-    - WPFilesystem
-    - Asserts
-    - \Helper\Functional
-  config:
-    WPDb:
-      dsn: 'mysql:host=%DB_HOST%;dbname=%DB_NAME%'
-      user: '%DB_USER%'
-      password: '%DB_PASSWORD%'
-      dump: 'tests/_data/dump.sql'
-      populate: false
-      cleanup: false
-      waitlock: 0
-      url: '%WP_URL%'
-      urlReplacement: true
-      tablePrefix: '%TABLE_PREFIX%'
-    WPBrowser:
-      url: '%WP_URL%'
-      adminUsername: '%ADMIN_USERNAME%'
-      adminPassword: '%ADMIN_PASSWORD%'
-      adminPath: '%WP_ADMIN_PATH%'
-    WPFilesystem:
-      wpRootFolder: '%WP_ROOT_FOLDER%'
-      plugins: '/wp-content/plugins'
-      mu-plugins: '/wp-content/mu-plugins'
-      themes: '/wp-content/themes'
-      uploads: '/wp-content/uploads'
+    enabled:
+        - WPDb
+        - WPBrowser
+        - WPFilesystem
+        - Asserts
+        - \Helper\Functional
+        - REST:
+            depends: WPBrowser
+            url: '%TEST_SITE_WP_URL%/wp-json'
+    config:
+        WPDb:
+            dsn: '%TEST_SITE_DB_DSN%'
+            user: '%TEST_SITE_DB_USER%'
+            password: '%TEST_SITE_DB_PASSWORD%'
+            dump: 'tests/_data/dump.sql'
+            populate: true
+            cleanup: true
+            waitlock: 10
+            url: '%TEST_SITE_WP_URL%'
+            urlReplacement: true
+            tablePrefix: '%TEST_SITE_TABLE_PREFIX%'
+        WPBrowser:
+            url: '%TEST_SITE_WP_URL%'
+            adminUsername: '%TEST_SITE_ADMIN_USERNAME%'
+            adminPassword: '%TEST_SITE_ADMIN_PASSWORD%'
+            adminPath: '%TEST_SITE_WP_ADMIN_PATH%'
+            headers:
+                X_TEST_REQUEST: 1
+                X_WPBROWSER_REQUEST: 1
+
+        WPFilesystem:
+            wpRootFolder: '%WP_ROOT_FOLDER%'
+            plugins: '/wp-content/plugins'
+            mu-plugins: '/wp-content/mu-plugins'
+            themes: '/wp-content/themes'
+            uploads: '/wp-content/uploads'
