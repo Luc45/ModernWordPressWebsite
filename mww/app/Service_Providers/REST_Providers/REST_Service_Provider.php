@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service_Providers\Viewable_Providers;
+namespace App\Service_Providers\REST_Providers;
 
 use MWW\DI\Context_Aware_Service_Provider;
 

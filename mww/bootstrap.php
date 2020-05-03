@@ -1,11 +1,11 @@
 <?php
 
-use App\Service_Providers\Viewable_Providers\REST_Service_Provider;
 use MWW\DI\Container;
 use MWW\Service_Providers\MWW_Service_Provider;
 use App\Service_Providers\Admin_Providers\Admin_Service_Provider;
 use App\Service_Providers\Ajax_Providers\Ajax_Service_Provider;
 use App\Service_Providers\Application_Service_Provider;
+use App\Service_Providers\REST_Providers\REST_Service_Provider;
 use App\Service_Providers\CLI_Providers\CLI_Service_Provider;
 use App\Service_Providers\Cron_Providers\Cron_Service_Provider;
 use App\Service_Providers\Viewable_Providers\Viewable_Service_Provider;
