@@ -1,11 +1,11 @@
 <?php
 
-class REST_Context_Cest implements Context_Tests_Interface {
+class Viewable_Context_Cest_Context_Cest implements Context_Tests_Interface {
 	public function test_is_rest_request( FunctionalTester $I ) {
 		$code = <<<PHP
 /** Plugin Name: Test */
-add_action( 'rest_api_init', function () {
-	 echo (int) App\Service_Providers\REST_Providers\REST_Service_Provider::should_register();
+add_action( 'init', function () {
+	 echo (int) App\Service_Providers\Viewable_Providers\Viewable_Service_Provider::should_register();
 	exit;
 } );
 PHP;
@@ -13,14 +13,14 @@ PHP;
 		$I->haveMuPlugin( "test.php", $code );
 
 		$I->sendGET( "v1/" );
-		$I->seeResponseEquals( '1' );
+		$I->seeResponseEquals( '0' );
 	}
 
 	public function test_is_viewable_request( FunctionalTester $I ) {
 		$code = <<<PHP
 /** Plugin Name: Test */
 add_action( 'wp', function () {
-	 echo sprintf('<div id="test-rest-response">%d</div>', (int) App\Service_Providers\REST_Providers\REST_Service_Provider::should_register());
+	 echo sprintf('<div id="test-rest-response">%d</div>', (int) App\Service_Providers\Viewable_Providers\Viewable_Service_Provider::should_register());
 	exit;
 } );
 PHP;
@@ -28,7 +28,7 @@ PHP;
 		$I->haveMuPlugin( "test.php", $code );
 
 		$I->amOnPage( "/" );
-		$I->see( "0", "#test-rest-response" );
+		$I->see( "1", "#test-rest-response" );
 	}
 
 	public function test_is_admin_request( FunctionalTester $I ) {
@@ -37,7 +37,7 @@ PHP;
 		$code = <<<PHP
 /** Plugin Name: Test */
 add_action( 'admin_init', function () {
-	 echo sprintf('<div id="test-rest-response">%d</div>', (int) App\Service_Providers\REST_Providers\REST_Service_Provider::should_register());
+	 echo sprintf('<div id="test-rest-response">%d</div>', (int) App\Service_Providers\Viewable_Providers\Viewable_Service_Provider::should_register());
 	exit;
 } );
 PHP;
@@ -53,7 +53,7 @@ PHP;
 		$code = <<<PHP
 /** Plugin Name: Test */
  add_action("wp_ajax_nopriv_test_rest_action", function() {
-    echo sprintf('<div id="test-rest-response">%d</div>', (int) App\Service_Providers\REST_Providers\REST_Service_Provider::should_register());
+    echo sprintf('<div id="test-rest-response">%d</div>', (int) App\Service_Providers\Viewable_Providers\Viewable_Service_Provider::should_register());
     exit;
  });
 PHP;
