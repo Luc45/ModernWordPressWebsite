@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Service_Providers\Cron_Providers;
+namespace MWW\Service_Providers;
 
-use MWW\DI\Context_Aware_Service_Provider;
-
-class Cron_Service_Provider extends Context_Aware_Service_Provider {
+abstract class Cron_Service_Provider extends Context_Aware_Service_Provider {
 
 	/**
 	 * Service Providers in the context of WP Cron
@@ -14,10 +12,6 @@ class Cron_Service_Provider extends Context_Aware_Service_Provider {
 	 */
 	public static function should_register(): bool {
 		return wp_doing_cron();
-	}
-
-	public function register(): void {
-
 	}
 
 }

@@ -2,11 +2,10 @@
 
 namespace MWW\Service_Providers;
 
-use MWW\DI\Service_Provider;
 use MWW\Routing\RouteConditional;
 use MWW\Routing\Router;
 
-class MWW_Service_Provider extends Service_Provider {
+class Framework_Service_Provider extends Service_Provider {
 
 	/**
 	 * @inheritDoc

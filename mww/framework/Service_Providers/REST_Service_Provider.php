@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Service_Providers\REST_Providers;
+namespace MWW\Service_Providers;
 
-use MWW\DI\Context_Aware_Service_Provider;
-
-class REST_Service_Provider extends Context_Aware_Service_Provider {
+abstract class REST_Service_Provider extends Context_Aware_Service_Provider {
 
 	/**
 	 * Service Providers in the context of REST API Requests
@@ -16,7 +14,4 @@ class REST_Service_Provider extends Context_Aware_Service_Provider {
 		return wp_using_themes() && mww_is_rest_api_request();
 	}
 
-	public function register(): void {
-
-	}
 }

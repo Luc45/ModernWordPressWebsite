@@ -1,10 +1,8 @@
 <?php
 
-namespace App\Service_Providers\CLI_Providers;
+namespace MWW\Service_Providers;
 
-use MWW\DI\Context_Aware_Service_Provider;
-
-class CLI_Service_Provider extends Context_Aware_Service_Provider {
+abstract class CLI_Service_Provider extends Context_Aware_Service_Provider {
 
 	/**
 	 * Service Providers in the context of WP CLI
@@ -14,10 +12,6 @@ class CLI_Service_Provider extends Context_Aware_Service_Provider {
 	 */
 	public static function should_register(): bool {
 		return defined( 'WP_CLI' ) && WP_CLI === true;
-	}
-
-	public function register(): void {
-
 	}
 
 }

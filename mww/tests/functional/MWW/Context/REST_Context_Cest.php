@@ -5,7 +5,7 @@ class REST_Context_Cest implements Context_Tests_Interface {
 		$code = <<<PHP
 /** Plugin Name: Test */
 add_action( 'rest_api_init', function () {
-	 echo (int) App\Service_Providers\REST_Providers\REST_Service_Provider::should_register();
+	 echo (int) \MWW\Service_Providers\REST_Service_Provider::should_register();
 	exit;
 } );
 PHP;
@@ -20,7 +20,7 @@ PHP;
 		$code = <<<PHP
 /** Plugin Name: Test */
 add_action( 'wp', function () {
-	 echo sprintf('<div id="test-rest-response">%d</div>', (int) App\Service_Providers\REST_Providers\REST_Service_Provider::should_register());
+	 echo sprintf('<div id="test-rest-response">%d</div>', (int) \MWW\Service_Providers\REST_Service_Provider::should_register());
 	exit;
 } );
 PHP;
@@ -37,7 +37,7 @@ PHP;
 		$code = <<<PHP
 /** Plugin Name: Test */
 add_action( 'admin_init', function () {
-	 echo sprintf('<div id="test-rest-response">%d</div>', (int) App\Service_Providers\REST_Providers\REST_Service_Provider::should_register());
+	 echo sprintf('<div id="test-rest-response">%d</div>', (int) \MWW\Service_Providers\REST_Service_Provider::should_register());
 	exit;
 } );
 PHP;
@@ -53,7 +53,7 @@ PHP;
 		$code = <<<PHP
 /** Plugin Name: Test */
  add_action("wp_ajax_nopriv_test_rest_action", function() {
-    echo sprintf('<div id="test-rest-response">%d</div>', (int) App\Service_Providers\REST_Providers\REST_Service_Provider::should_register());
+    echo sprintf('<div id="test-rest-response">%d</div>', (int) \MWW\Service_Providers\REST_Service_Provider::should_register());
     exit;
  });
 PHP;

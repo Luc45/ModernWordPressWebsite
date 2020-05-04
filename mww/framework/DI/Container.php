@@ -3,6 +3,7 @@
 namespace MWW\DI;
 
 use InvalidArgumentException;
+use MWW\Service_Providers\Context_Aware_Service_Provider;
 use tad_DI52_Container;
 
 class Container {

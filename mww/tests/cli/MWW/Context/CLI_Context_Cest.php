@@ -5,7 +5,7 @@ class CLI_Context_Cest {
 		$code = <<<PHP
 /** Plugin Name: Test */
 add_action("muplugins_loaded", function() {
-	\$is_rest_request = App\Service_Providers\REST_Providers\REST_Service_Provider::should_register();
+	\$is_rest_request = \MWW\Service_Providers\REST_Service_Provider::should_register();
 	echo \$is_rest_request ? "REST_REQUEST" : "NOT_REST_REQUEST";
 	exit;
 });

@@ -1,6 +1,6 @@
 <?php
 
-namespace MWW\DI;
+namespace MWW\Service_Providers;
 
 abstract class Context_Aware_Service_Provider extends Service_Provider {
 	/**
