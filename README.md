@@ -154,7 +154,7 @@ You see? This is MVC. We could easily separate the logic - we don't need to use 
 
 ## Contributing
 
-To contribute to Modern WordPress Website, you can open an issue with your suggestion and if approved, do a pull-request. Please follow PSR-2 code-styling standards and remind about the unopiniated and simple philosophy of Modern WordPress Theme.
+Contributions are welcome. Feel free to open an issue or a Pull-Request! MMW follows most of the WordPress Code style.
 
 ## To-dos
 
@@ -165,3 +165,10 @@ To contribute to Modern WordPress Website, you can open an issue with your sugge
 ## License
 
 The Modern WordPress Website is licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Jetbrains
+
+Thanks to [Jetbrains](https://www.jetbrains.com) for providing a free license for their excellent PHPStorm IDE.  
+<a href="https://www.jetbrains.com">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/JetBrains_Logo_2016.svg" alt="Jetbrains">
+</a>
