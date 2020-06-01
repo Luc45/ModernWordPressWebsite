@@ -25,14 +25,12 @@ It couples with WordPress as a `mu-plugin` to provide a rich OOP environment to 
 
 MWW is installed as a mu-plugin. This way we intercept WordPress requests at the earliest stage possible and have more control over the application.
 
-To get started, download a fresh copy of WordPress, run the install process and run these commands inside of it:
+To get started in a fresh copy of WordPress:
 
-1. Download a fresh copy of WordPress
-2. Run the install process normally
-3. On the root folder, run: `git clone https://github.com/Luc45/ModernWordPressWebsite wp-content/mu-plugins`
-4. Go to `wp-content/mu-plugins/mww/` and run `composer update` 
-5. (Recommended) Renaming `.env.example` to `.env` and enter your environment credentials in it. Run tests with `vendor/bin/codecept run`
-6. (Recommended) Delete all plugins and all themes from `wp-content/themes`. Download [Empty Theme](https://github.com/Luc45/EmptyTheme/archive/master.zip) and set it as the active theme.
+1. On the root folder, run: `git clone https://github.com/Luc45/ModernWordPressWebsite wp-content/mu-plugins`
+2. Go to `wp-content/mu-plugins/mww/` and run `composer update` 
+3. (Recommended) Rename `.env.example` to `.env` and enter your environment credentials in it. Run a test with `vendor/bin/codecept run <suite>`. The available suites by default are `wpunit`, `acceptance`, `functional` and `unit`.
+4. (Recommended) Delete all themes from `wp-content/themes` and activate [Empty Theme](https://github.com/Luc45/EmptyTheme/archive/master.zip) as your theme.
 
 ## How MWW works
 
