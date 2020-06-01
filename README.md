@@ -2,7 +2,7 @@
 
 ## About Modern WordPress Website (MWW)
 
-Modern WordPress Website (MWW) is a disruptive WordPress framework for bold developers.
+Modern WordPress Website (MWW) is a disruptive way of building a WordPress website.
 
 It couples with WordPress as a `mu-plugin` to provide a rich OOP environment to build a clean and solid application. 
 
@@ -163,3 +163,10 @@ Contributions are very welcome. Please raise an issue or open a pull-request. Wh
 ## License
 
 The Modern WordPress Website is licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Jetbrains
+
+Thanks to [Jetbrains](https://www.jetbrains.com) for providing a free license for their excellent PHPStorm IDE.  
+<a href="https://www.jetbrains.com">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/JetBrains_Logo_2016.svg" alt="Jetbrains">
+</a>
