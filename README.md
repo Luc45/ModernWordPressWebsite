@@ -155,6 +155,7 @@ Contributions are very welcome. Please raise an issue or open a pull-request. Wh
 ## To-dos
 
 - Write more tests.
+- Expand MWW context to a higher layer, as to allow adding/removing WordPress plugins using composer.
 
 ## License
 
