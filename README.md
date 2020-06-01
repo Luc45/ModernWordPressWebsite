@@ -146,7 +146,7 @@ class Post_Controller extends Controller {
 
 That's all you need to get started.
 
-MWW has already proven to be viable on averagely complex projects. It is, however, in beta state and open to contributors. Help us test and develop it! 
+MWW has already proven to be viable on averagely complex projects with hundreds of thousands of logged-in monthly users interacting with the application. It is, however, in beta state and open to contributors. Help us test and develop it! 
 
 ## Contributing
 
@@ -154,9 +154,7 @@ Contributions are very welcome. Please raise an issue or open a pull-request. Wh
 
 ## To-dos
 
-- Throw custom Exceptions throughout the framework and app
-- Implement Service Providers
-- Write more tests
+- Write more tests.
 
 ## License
 
