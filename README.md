@@ -1,24 +1,19 @@
 <p align="center"><img src="http://dev.lucasbustamante.com.br/mww-logo.svg"></p>
 
-## About Modern WordPress Website
+## About Modern WordPress Website (MWW)
 
-Modern WordPress Website (MWW) is a modern way of building WordPress websites. Simple and powerful, it's a great skeleton to bootstrap a new WordPress project.
+Modern WordPress Website (MWW) is a disruptive way of building a WordPress website.
 
-## Think of it as a functions.php with an OOP architecture similar to Laravel.
+It couples with WordPress as a `mu-plugin` to provide a rich OOP environment to build a clean and solid application. 
 
-First, you route WordPress conditional tags such as *is_front_page()* to Controllers, then you fetch/manipulate data and render a view with the data. With MWW, you don't use a theme. However, like in functions.php, you have access to all WordPress functions and plugins.
+### Highlights
 
-- MVC in WordPress.
-- Modern, yet simple PHP.
-- PSR-4 Autoloading.
-- Dependency Injection Container (Thanks Luca Tume, for [di52](https://github.com/lucatume/di52))
-- Acceptance, Functional, Integration and Unit tests (Thanks Luca Tume, for [wp-browser](https://github.com/lucatume/wp-browser))
-- Installs as a *mu-plugin*
-- MWW is in BETA state.
-
-Modern WordPress Website (MWW) is great for experienced PHP developers using WordPress, and for intermediate developers who want to take their skills to the next level.
-
-MWW is in beta and open to contributors. Help us test and develop it!
+- Modern PHP
+- PSR-4
+- Blade Templates
+- Service Providers
+- DI Container ([di52](https://github.com/lucatume/di52))
+- Automated tests ([wp-browser](https://github.com/lucatume/wp-browser))
 
 ## Building a Small Project
 
@@ -28,20 +23,22 @@ MWW is in beta and open to contributors. Help us test and develop it!
 
 ## Installation
 
-*Modern WordPress Website* is installed as a mu-plugin. This way we intercept WordPress requests at an earlier stage and have more control over the application.
+MWW is installed as a mu-plugin. This way we intercept WordPress requests at the earliest stage possible and have more control over the application.
 
-To get started, simply follow these steps in a clean WordPress installation:
+To get started, download a fresh copy of WordPress, run the install process and run these commands inside of it:
 
-- Run `git clone https://github.com/Luc45/ModernWordPressWebsite wp-content/mu-plugins` in the root folder of a clean WordPress installation
-- Run `composer update` in **wp-content/mu-plugins/mww/**
-- (Recommended) You will not need your theme anymore, you can create an empty theme with just index.php, style.css and functions.php. [Download empty theme](https://github.com/Luc45/EmptyTheme/archive/master.zip).
-- (Recommended) Set up tests by editing .env.example and renaming it to .env - Run tests with `vendor/bin/codecept run`
+1. Download a fresh copy of WordPress
+2. Run the install process normally
+3. On the root folder, run: `git clone https://github.com/Luc45/ModernWordPressWebsite wp-content/mu-plugins`
+4. Go to `wp-content/mu-plugins/mww/` and run `composer update` 
+5. (Recommended) Renaming `.env.example` to `.env` and enter your environment credentials in it. Run tests with `vendor/bin/codecept run`
+6. (Recommended) Delete all plugins and all themes from `wp-content/themes`. Download [Empty Theme](https://github.com/Luc45/EmptyTheme/archive/master.zip) and set it as the active theme.
 
-Now it's up to you to create awesome stuff!
+## How MWW works
 
-## How it works
+MWW leverages the `template_include` filter to implement it's own `Template` system and keep all the application logic inside MWW itself, thus not needing a theme.
 
-Even though MWW is powerful, it's also very simple. It all starts with the routes:
+We start by routing requests to the appropriate views.
 
 ```php
 // routes/app.php
@@ -65,7 +62,7 @@ class Home_Controller extends Controller {
 }
 ```
 
-Now all you need is a view!
+Now all you need is a view:
 
 ```php
 // views/pages/home.blade.php
@@ -77,9 +74,9 @@ Now all you need is a view!
 
 ```
 
-That's all we need to get started!
+That's all we need to get started.
 
-MWW follows the Convention-over-Configuration (CoC) philosophy, which aims to make your code cleaner and smarter if you want to use the sensible defaults it provides. For instance, on the example above, you could also register your route like this: `Route::add( 'is_front_page', Home_Controller::class );`
+MWW follows the Convention-over-Configuration (CoC) philosophy, which aims to make your code cleaner and smarter if you want to use the sensible defaults it provides. For instance, on the example above, you could also ommit the `'index'` parameter of the route: `Route::add( 'is_front_page', Home_Controller::class );`
 
 If you pass just a class name to a Route, it will try to call `index()` on it by default.
 
@@ -101,8 +98,7 @@ Then, we have a variable `$posts` in our home view with the content of `get_post
 // views/pages/home.blade.php
 <?php foreach ( $posts as $post ): ?>
     <a href="<?= esc_url( get_the_permalink($post->ID) ) ?>"><?= esc_html( $post->post_title ) ?></a>
-<?php endforeach; ?>
-<?php if (empty($posts)): ?>
+<?php endforeach; if (empty($posts)): ?>
    No posts to show
 <?php endif; ?>
 ```
@@ -134,7 +130,7 @@ class Post_Controller extends Controller {
 }
 
 // 3: Create the View. You don't need to pass the post to it
-//    because WordPress globals are always available in the views.
+//    since WordPress globals are always available in the views.
 //    You can even use the special @loop directive to loop through
 //    the current query, similar to while (has_post()): the_post();
 //    in a regular WordPress context.
@@ -150,11 +146,13 @@ class Post_Controller extends Controller {
 ```
 
 
-You see? This is MVC. We could easily separate the logic - we don't need to use `get_posts()` in our view, we can do it in the Controller, or better yet, ask a Model to fetch and prepare that data, and then we pass it to the view. This way, it is easier for our application to grow organized.
+That's all you need to get started.
+
+MWW has already proven to be viable on averagely complex projects. It is, however, in beta state and open to contributors. Help us test and develop it! 
 
 ## Contributing
 
-Contributions are welcome. Feel free to open an issue or a Pull-Request! MMW follows most of the WordPress Code style.
+Contributions are very welcome. Please raise an issue or open a pull-request. When submitting a PR, please follow the WordPress coding standards.
 
 ## To-dos
 

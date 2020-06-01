@@ -1,0 +1,19 @@
+actor: CliTester
+#bootstrap: _bootstrap.php
+modules:
+    enabled:
+        - \Helper\Cli
+        - WPCLI
+        - Asserts
+        - WPFilesystem
+    config:
+        WPCLI:
+            path: '%WP_ROOT_FOLDER%'
+            allow-root: true
+            throw: false
+        WPFilesystem:
+            wpRootFolder: '%WP_ROOT_FOLDER%'
+            plugins: '/wp-content/plugins'
+            mu-plugins: '/wp-content/mu-plugins'
+            themes: '/wp-content/themes'
+            uploads: '/wp-content/uploads'

@@ -8,14 +8,16 @@ namespace MWW\Shortcodes;
  */
 abstract class Shortcode {
 	/**
-	 * Shortcode initialization
+	 * Add the shortcode to WordPress
 	 */
-	public function __construct() {
+	public function add() {
 		add_shortcode( $this->shortcode, [ $this, 'register_shortcode' ] );
 	}
 
 	/**
-	 * Register the shortcode in WordPress
+	 * What the shortcode will output when called.
+	 *
+	 * @return string
 	 */
-	public abstract function register_shortcode( $atts, $content = null );
+	public abstract function execute( $atts, $content = null ): string;
 }

@@ -1,4 +1,20 @@
 {
+  "type": "project",
+  "description": "Modern WordPress Website (MWW) aims to bring a good OOP experience for working with WordPress.",
+  "authors": [
+    {
+      "name": "Lucas Bustamante",
+      "email": "lucasfbustamante@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
   "autoload": {
     "psr-4": {
       "App\\": "app",
@@ -6,12 +22,21 @@
     }
   },
   "require": {
+    "php": "^7.2",
     "lucatume/di52": "^2.0",
     "illuminate/view": "^5.5",
     "illuminate/events": "^5.5",
     "illuminate/filesystem": "^5.5"
   },
   "require-dev": {
-    "lucatume/wp-browser": "2.*"
+    "codeception/module-asserts": "^1.0",
+    "codeception/module-cli": "^1.0",
+    "codeception/module-db": "^1.0",
+    "codeception/module-filesystem": "^1.0",
+    "codeception/module-phpbrowser": "^1.0",
+    "codeception/module-rest": "^1.2",
+    "codeception/module-webdriver": "^1.0",
+    "codeception/util-universalframework": "^1.0",
+    "lucatume/wp-browser": "^2.4"
   }
 }

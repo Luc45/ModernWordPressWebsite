@@ -18,8 +18,10 @@ class HelloWorldShortcode extends Shortcode {
 	 *
 	 * @param $atts
 	 * @param null $content
+	 *
+	 * @return string
 	 */
-	public function register_shortcode( $atts, $content = null ) {
+	public function execute( $atts, $content = null ): string {
 		return 'Hello World!';
 	}
 }

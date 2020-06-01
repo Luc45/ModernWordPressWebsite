@@ -2,7 +2,7 @@
 
 namespace MWW\Assets;
 
-class EnqueueScripts {
+class Enqueuer {
 	/**
 	 *   Enqueues a Single CSS
 	 *   https://developer.wordpress.org/reference/functions/wp_enqueue_style/
@@ -11,7 +11,7 @@ class EnqueueScripts {
 	 * @param array $dependency Will load after selected handlers
 	 * @param string $path Path to load from, starting from MWW_PATH
 	 */
-	public function enqueueStyle(
+	public function enqueue_style(
 		string $file,
 		array $dependency = [],
 		string $path = '/public/css/'
@@ -32,7 +32,7 @@ class EnqueueScripts {
 	 * @param string $url URL of the remote resource
 	 * @param array $dependency Will load after selected handlers
 	 */
-	public function enqueueRemoteStyle(
+	public function enqueue_remote_style(
 		string $name,
 		string $url,
 		array $dependency = []
@@ -53,7 +53,7 @@ class EnqueueScripts {
 	 * @param string $path Path to load from, starting from MWW_PATH
 	 * @param boolean $in_footer Wether to load the script in the footer or not
 	 */
-	public function enqueueJavascript(
+	public function enqueue_javascript(
 		string $file,
 		array $dependency = [ 'jquery' ],
 		string $path = '/public/js/',
@@ -76,7 +76,7 @@ class EnqueueScripts {
 	 * @param array $dependency Will load after selected handlers
 	 * @param boolean $in_footer Wether to load the script in the footer or not
 	 */
-	public function enqueueRemoteJavascript(
+	public function enqueue_remote_javascript(
 		string $name,
 		string $url,
 		array $dependency = [ 'jquery' ],

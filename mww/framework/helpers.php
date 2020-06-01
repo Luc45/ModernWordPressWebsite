@@ -57,15 +57,33 @@ if ( ! function_exists( 'include_view' ) ) {
 }
 
 /**
- *   Return wether string ends with string
+ * Whether string ends with string
  *
- * @param $haystack full string
- * @param $needle checks if haystack ends in needle
+ * @param string $haystack full string
+ * @param string $needle checks if haystack ends in needle
  *
  * @return bool
  */
 if ( ! function_exists( 'endsWith' ) ) {
 	function endsWith( string $haystack, string $needle ) {
 		return substr( $haystack, - strlen( $needle ) ) === $needle;
+	}
+}
+
+/**
+ * Whether this is a REST API request.
+ *
+ * @return bool
+ */
+if ( ! function_exists( 'mww_is_rest_api_request' ) ) {
+	function mww_is_rest_api_request(): bool {
+		if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+			return false;
+		}
+
+		$rest_prefix         = trailingslashit( rest_get_url_prefix() );
+		$is_rest_api_request = ( false !== strpos( $_SERVER['REQUEST_URI'], $rest_prefix ) );
+
+		return apply_filters( 'mww_is_rest_api_request', $is_rest_api_request );
 	}
 }

@@ -6,12 +6,12 @@ namespace MWW\Shortcodes;
  * Class ShortcodesRegistrar
  * @package MWW\Shortcodes;
  */
-class ShortcodesRegistrar {
+class Shortcodes_Registrar {
 	/**
 	 * Registers all files in app\Shortcodes folder, ending with
 	 * "Shortcode.php" and extending ShortcodeAbstract class.
 	 */
-	public function registerAll() {
+	public function add_shortcodes() {
 		$dir = new \DirectoryIterator( MWW_PATH . '/app/Shortcodes' );
 
 		$shortcode_files = new \RegexIterator(
@@ -25,7 +25,9 @@ class ShortcodesRegistrar {
 			try {
 				$r = new \ReflectionClass( $class );
 				if ( $r->isSubclassOf( Shortcode::class ) ) {
-					$r->newInstance();
+					/** @var Shortcode $instance */
+					$instance = $r->newInstance();
+					$instance->add();
 				}
 			} catch ( \ReflectionException $e ) {
 				continue;

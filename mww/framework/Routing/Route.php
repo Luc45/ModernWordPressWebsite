@@ -15,6 +15,7 @@ use MWW\DI\Container;
  * @method static string rawDelete( string $route, callable $callback )
  */
 class Route {
+
 	/**
 	 * Matches a conditional handler
 	 *

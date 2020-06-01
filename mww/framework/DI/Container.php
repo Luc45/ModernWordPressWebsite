@@ -2,6 +2,8 @@
 
 namespace MWW\DI;
 
+use InvalidArgumentException;
+use MWW\Service_Providers\Context_Aware_Service_Provider;
 use tad_DI52_Container;
 
 class Container {
@@ -18,7 +20,7 @@ class Container {
 	 *
 	 * @return \tad_DI52_Container
 	 */
-	protected static function container() {
+	public static function container() {
 		if ( static::$diContainer === null ) {
 			static::$diContainer = new tad_DI52_Container();
 		}
@@ -67,6 +69,29 @@ class Container {
 	}
 
 	/**
+	 * @Registers a service provider implementation.
+	 * @see \tad_DI52_Container::register
+	 */
+	public static function register( $serviceProviderClass ) {
+		return static::container()->register( $serviceProviderClass );
+	}
+
+	/**
+	 * @Registers a service provider implementation.
+	 * @see \tad_DI52_Container::register
+	 */
+	public static function register_contextual_provider( $serviceProviderClass ) {
+		if ( ! is_subclass_of( $serviceProviderClass, Context_Aware_Service_Provider::class ) ) {
+			throw new InvalidArgumentException( 'Class is not an instance of ' . Context_Aware_Service_Provider::class );
+		}
+
+		/** @var Context_Aware_Service_Provider $serviceProviderClass */
+		if ( $serviceProviderClass::should_register() ) {
+			return static::container()->register( $serviceProviderClass );
+		}
+	}
+
+	/**
 	 * Proxy method to redirect any call made on a method not explicitly implemented by this
 	 * class to the container.
 	 *
@@ -77,14 +102,5 @@ class Container {
 	 */
 	public static function __callStatic( $name, array $args = [] ) {
 		return call_user_func_array( [ static::container(), $name ], $args );
-	}
-
-	/**
-	 * Registers the bindings from the bindings file
-	 */
-	public static function registerBindings( $bindings_file ) {
-		if ( file_exists( $bindings_file ) ) {
-			include_once( $bindings_file );
-		}
 	}
 }
