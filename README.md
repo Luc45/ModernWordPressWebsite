@@ -1,6 +1,6 @@
 <p align="center"><img src="http://dev.lucasbustamante.com.br/mww-logo.svg"></p>
 
-## About Modern WordPress Website (MWW)
+## Modern WordPress Website (MWW)
 
 Modern WordPress Website (MWW) is a disruptive way of building a WordPress website.
 
