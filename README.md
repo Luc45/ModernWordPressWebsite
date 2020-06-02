@@ -15,6 +15,9 @@ It couples with WordPress as a `mu-plugin` to provide a rich OOP environment to 
 - DI Container ([di52](https://github.com/lucatume/di52))
 - Automated tests ([wp-browser](https://github.com/lucatume/wp-browser))
 
+## Who is this for
+This is for experience developers working on projects that they have full control over, who plan to use the least amount of plugins possible. If you plan to use plugins that depend on the Template Structure for overrides such as The Events Calendar or WooCommerce, you might not want to use MWW, since it doesn't use the `themes` folder at all.
+
 ## Installation
 
 MWW is installed as a mu-plugin. This way we intercept WordPress requests at the earliest stage possible and have more control over the application.
