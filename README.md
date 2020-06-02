@@ -15,12 +15,6 @@ It couples with WordPress as a `mu-plugin` to provide a rich OOP environment to 
 - DI Container ([di52](https://github.com/lucatume/di52))
 - Automated tests ([wp-browser](https://github.com/lucatume/wp-browser))
 
-## Building a Small Project
-
-[![Click to watch on YouTube](https://img.youtube.com/vi/avEukD0meAg/0.jpg)](https://www.youtube.com/watch?v=avEukD0meAg)
-
-[(Click to watch on YouTube)](https://www.youtube.com/watch?v=avEukD0meAg)
-
 ## Installation
 
 MWW is installed as a mu-plugin. This way we intercept WordPress requests at the earliest stage possible and have more control over the application.
