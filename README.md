@@ -154,10 +154,6 @@ Contributions are very welcome. Please raise an issue or open a pull-request. Wh
 - Write more tests.
 - Expand MWW context to a higher layer, as to allow adding/removing WordPress plugins using composer.
 
-## License
-
-The Modern WordPress Website is licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
 ## Jetbrains
 
 Thanks to [Jetbrains](https://www.jetbrains.com) for providing a free license for their excellent PHPStorm IDE.  
