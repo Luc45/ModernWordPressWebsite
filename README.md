@@ -2,7 +2,7 @@
 
 Back in 2018 I was being introduced to the SOLID principles, and more importantly, how to apply these concepts in a pratical way in WordPress through the usage of a Dependency Injection Container and Unit Tests. I started this project trying to push the barriers of the conventional ways of building software on top of WordPress, applying modern development standards.
 
-Now, a few years later, I look back at this project and, while I have a good deal of simpathy for it, I wouldn't recommend it for a production project. The main reason is that I haven't updated this project for a good couple years, now. It's very outdated, and when I built it, I was still learning.
+Now, a few years later, I look back at this project and, while I have a good deal of simpathy for it, I wouldn't recommend it for a production project. The main reason is that I haven't updated this project for a good couple years, now. It's very outdated, and when I built it, I was still in the beginning of my education as a developer.
 
 To be fair with MWW, it works well. I have a personal website with hundreds of thousands of monthly views running on it, and even after years of development, the code is a delight to work with.
 
